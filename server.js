@@ -11,6 +11,7 @@ const { reactors } = require('./reactors-data');
 
 // ************* Middleware ************ //
 app.use(cors());
+app.use(express.static(__dirname + '/public'));
 
 // *********** CRUD framework *********** //
 // default path '/' serves up the '/index.html' file
@@ -51,14 +52,14 @@ async function scrapeData() {
     const $ = cheerio.load(data);
     // Select all the list items in plainlist class
     const listItems = $('tbody > tr');
-    // Stores data for all countries
-    var countries = [];
+    // Stores data for all reactors
+    var reactorsList = [];
 
     // Use .each method to loop through the li we selected
     listItems.each((idx, el) => {
-      // Object holding data for each country/jurisdiction
+      // Object holding data for each reactorDesign
 
-      const country = {
+      const reactorDesign = {
         name: '',
         nameLink: '',
         grossPower: '',
@@ -72,28 +73,28 @@ async function scrapeData() {
 
       // Select the text content of a and span elements
       // Store the textcontent in the above object
-      country.name = $(el).children('td:nth-child(1)').text().trim();
-      country.nameLink = $(el).children('td:nth-child(1)').find('a').attr('href');  
-      country.grossPower = $(el).children('td:nth-child(2)').text().trim();
-      country.type = $(el).children('td:nth-child(3)').text().trim();
-      country.typeLink = $(el).children('td:nth-child(3)').find('a').attr('href'); 
-      country.producer = $(el).children('td:nth-child(4)').text().trim();
-      country.producerLink = $(el).children('td:nth-child(4)').find('a').attr('href'); 
-      country.country = $(el).children('td:nth-child(5)').text().trim();
-      country.status = $(el).children('td:nth-child(6)').text().trim();
+      reactorDesign.name = $(el).children('td:nth-child(1)').text().trim();
+      reactorDesign.nameLink = $(el).children('td:nth-child(1)').find('a').attr('href');  
+      reactorDesign.grossPower = $(el).children('td:nth-child(2)').text().trim();
+      reactorDesign.type = $(el).children('td:nth-child(3)').text().trim();
+      reactorDesign.typeLink = $(el).children('td:nth-child(3)').find('a').attr('href'); 
+      reactorDesign.producer = $(el).children('td:nth-child(4)').text().trim();
+      reactorDesign.producerLink = $(el).children('td:nth-child(4)').find('a').attr('href'); 
+      reactorDesign.country = $(el).children('td:nth-child(5)').text().trim();
+      reactorDesign.status = $(el).children('td:nth-child(6)').text().trim();
 
-      // Populate countries array with country data
-      countries.push(country);
+      // Populate reactorsList array with reactorDesign data
+      reactorsList.push(reactorDesign);
     });
 
-    // Logs countries array to the console
-    // console.dir(countries);
+    // Logs reactorsList array to the console
+    // console.dir(reactorsList);
 
 
-    // Write countries array in countries.json file
+    // Write reactorsList array in reactors-data.js file
     fs.writeFile(
       'reactors-data.js',
-      `exports.reactors = ` + JSON.stringify(countries, null, 2),
+      `exports.reactors = ` + JSON.stringify(reactorsList, null, 2),
       (err) => {
         if (err) {
           console.error(err);
@@ -106,5 +107,5 @@ async function scrapeData() {
     console.error(err);
   }
 }
-// Invoke the above function
-scrapeData();
+// ******* Uncomment to invoke the function and run the scraper ******* //
+// scrapeData();

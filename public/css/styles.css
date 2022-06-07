@@ -1,0 +1,78 @@
+/******************************************
+/* CSS
+/*******************************************/
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+/* General FlexBox Class Setup */
+.flexBox {
+  display: flex;
+}
+
+/* Font Choices */
+* {
+  font-family: 'Lato', sans-serif;
+}
+pre {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem
+}
+
+/* Link styling */
+a {
+  text-decoration: none;
+}
+/* nav list elements */
+.navElements {
+  display: inline-block;
+}
+/******************************************
+/* LAYOUT
+/*******************************************/
+/* general layout styling */
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#mainSection, #contactInfoSection, #dataOverviewSection, #availableDataSection {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+/* header styling */
+header {
+  height: 4rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #25292e;
+}
+#navList {
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+.navElements > a{
+  color: whitesmoke;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+/* Media Queries for Device Width */
+@media screen and (max-width: 650px) {
+  #mainSection, #contactInfoSection, #dataOverviewSection, #availableDataSection {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  /* header styling */
+  header {
+    height: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

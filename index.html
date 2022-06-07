@@ -1,13 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scrapper Test</title>
-</head>
-<body>
-  <h1>Adv. Reactor IAEA Scrapper API</h1>
-  <p>Endpoint: .../api/:reactor</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- <link rel="stylesheet" href="public/css/normalize.css" type="text/css" /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" />
+
+    <title>Scrapper Test</title>
+  </head>
+
+  <body>
+    <!-- Header including Navbar -->
+    <header class="flexBox">
+      <nav >
+        <ul id="navList" class="flexBox">
+          <li class="navElements"><a href="#">Home</a></li>
+          <li class="navElements"><a href="#">API</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main id="mainSection">
+      <h1>Advanced Nuclear Reactor Database</h1>
+      <p>An API containing web scraped data of advanced nuclear reactor designs.</p>
+
+    </main>
+
+    <!-- Contact Information Section -->
+    <section id="contactInfoSection">
+      <h2>Contact</h2>
+      <p>
+        Maintained by:
+        <a href="https://github.com/danjkim21">Daniel Jay-Young Kim</a>
+      </p>
+      <p>
+        See
+        <a href="https://github.com/danjkim21/adv-nuclear-reactor-api"
+          >GitHub Repository</a
+        >
+        for Full Documentation
+      </p>
+    </section>
+
+    <!-- Data Overview Section -->
+    <section id="dataOverviewSection">
+      <h2>Endpoints</h2>
+      <section>
+        <h3>Search API by Reactor Name:</h3>
+        <p>https://adv-nuclear-api.herokuapp.com/api/<strong>reactor name</strong></p>
+      </section>
+
+      <section>
+        <h3>Sample JSON Response:</h3>
+        <code>
+          <pre>
+            {
+                "name": "Xe-100",
+                "nameLink": "/w/index.php?title=Xe-100&action=edit&redlink=1",
+                "grossPower": "80",
+                "type": "HTGR",
+                "typeLink": "/wiki/High_temperature_gas_cooled_reactor",
+                "producer": "X-energy[31]",
+                "producerLink": "/wiki/X-energy",
+               "country": "United States",
+               "status": "Conceptual design development"
+            }
+          </pre>
+        </code>
+      </section>
+    </section>
+
+    <section id="availableDataSection">
+      <h2>Available Data</h2>
+    </section>
+
+  </body>
 </html>
