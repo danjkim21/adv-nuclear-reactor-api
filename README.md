@@ -10,12 +10,12 @@
 <h3 align="center">Advanced Nuclear Reactors API</h3>
 
   <p align="center">
-    An API containing web scraped data of advanced nuclear reactor designs. (WIP - README INCOMPLETE)
+    An API containing web scraped data of advanced nuclear reactor designs. 
     <br />
     <a href="https://github.com/danjkim21/adv-nuclear-reactor-api"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="adv-nuclear-api.herokuapp.com/">View Demo</a>
+    <a href="https://adv-nuclear-api.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/danjkim21/adv-nuclear-reactor-api/issues">Report Bug</a>
     ·
@@ -24,73 +24,31 @@
 </div>
 
 
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+As an energy wonk, I've notice how difficult it is find up to date information on advanced nuclear reactor designs. This project aims to aggregate information on all advanced nuclear reactor technologies that exist around the world. <br> 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-### Built With
+It is a work in progress and the data is constantly evolving as I enhance my web scraper script and add new sources.  
 
 
-* [Node.JS]()
-* [Express]()
-* [Cheerio]()
+### How It's Made
 
+**Tech used:** 
+* [Node.js](https://nodejs.org/en/)
+* [Express](https://expressjs.com/)
+* [Cheerio](https://cheerio.js.org/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
+The data for this API project was obtained by creating a custom web scraper script using Cheerio. At the moment, the scraper pulls data from [Wikipedia](https://en.wikipedia.org/wiki/List_of_small_modular_reactor_designs) but the scraper will be enhanced to recieve multiple url inputs (if you have any quality sources, please let me know!).
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+This API can be accessed via [https://adv-nuclear-api.herokuapp.com/](https://adv-nuclear-api.herokuapp.com/) or as a local copy. To get a local copy up and running follow these simple example steps.
 
 ### Installation
-
 
 1. Clone the repo
    ```sh
@@ -101,58 +59,44 @@ This is an example of how to list things you need to use the software and how to
    npm install
    ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- USAGE EXAMPLES -->
-## Usage
+### Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+1. Run server
+   ```sh
+    node server.js
+    npm run dev  // nodemon command
+   ```
+2. Navigate to server
+   ```sh
+   `localhost:8000`
+   ```
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Client Side API interaction
+- [ ] Web scraper enhancements (new sources)
+- [ ] Feature to allow reactor developers to add reactor data
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/danjkim21/adv-nuclear-reactor-api/issues) for a full list of proposed features (and known issues).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+## Lessons Learned:
 
+My biggest take away is how powerful JavaScript is as a language. Prior to this project, I assumed that I would always need Python to scrape any web content. After finding Cheerio, scraping content became--dare I say--a much less daunting experience due to how intuitive and easy to use Cheerio is. 
 
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTACT -->
 ## Contact
@@ -161,7 +105,7 @@ Your Name - [@devdanielk](https://twitter.com/devdanielk) - dan.jkim21@gmail.com
 
 Project Link: [https://github.com/danjkim21/adv-nuclear-reactor-api](https://github.com/danjkim21/adv-nuclear-reactor-api)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+Live Link: [https://adv-nuclear-api.herokuapp.com/](https://adv-nuclear-api.herokuapp.com/)
 
 
 
