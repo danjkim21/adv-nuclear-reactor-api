@@ -16,7 +16,7 @@
 }
 pre {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.9rem
+  font-size: 0.9rem;
 }
 
 /* Link styling */
@@ -35,17 +35,27 @@ body {
   height: 100%;
   margin: 0;
 }
+pre {
+  overflow: scroll;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-width: 750px;
+  padding: 1rem 1rem;
+  background-color: #f6f8fa;
+  border: 1px solid #a4a7aa;
+  border-radius: 4px;
+}
 
 #mainSection, #contactInfoSection, #dataOverviewSection, #availableDataSection {
-  margin-left: 5rem;
-  margin-right: 5rem;
+  margin-left: 7.5vw;
+  margin-right: 7.5vw;
 }
 
 /* header styling */
 header {
-  height: 4rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  height: 8vh;
+  padding-left: 7.5vw;
+  padding-right: 7.5vw;
   justify-content: flex-end;
   align-items: center;
   background-color: #25292e;
@@ -66,13 +76,13 @@ header {
 /* Media Queries for Device Width */
 @media screen and (max-width: 650px) {
   #mainSection, #contactInfoSection, #dataOverviewSection, #availableDataSection {
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
   }
   /* header styling */
   header {
-    height: 4rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    height: 7.5vh;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
   }
 }
