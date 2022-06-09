@@ -2,37 +2,56 @@
 const express = require('express');
 const app = express();
 const http = require('http');
-const cors = require('cors');
+const fs = require('fs');
 const cheerio = require('cheerio');
 const axios = require('axios');
-const fs = require('fs');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+// ************* Variables ************* //
 const PORT = process.env.PORT || 8000;
-const { reactors } = require('./reactors-data');
+const { reactors } = require('./public/js/reactors-data');
 
 // ************* Middleware ************ //
 app.use(cors());
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+app.use(bodyParser.json());
 
 // *********** CRUD framework *********** //
-// default path '/' serves up the '/index.html' file
-app.get('/', (request, response) => {
-  response.sendFile(__dirname + '/index.html');
+// path '/' servers up (GETS) the 'index.ejs' file and required data
+app.get('/', function (request, response) {
+  response.render('index', {foo: 'FOO'});    // fix data conventions foo: 'foo' - testing
 });
 
-// path '/api/:name' serves up the adv. reactors API
+// default path '/about' GETS the '/about.html' file and required data
+app.get('/about', function (request, response) {
+  response.render('about', {foo: 'FOO'});    // fix data conventions foo: 'foo' - testing
+});
+
+// path '/api/' GETS the adv. reactors API - Not filtered
+app.get('/api/', (request, response) => {
+  // save request to reactorName and converts to lowerCase
+  response.json(reactors);
+});
+
+// path '/api/:name' GETS the adv. reactors API - filtered by NAME
 app.get('/api/:name', (request, response) => {
   // save request to reactorName and converts to lowerCase
   const reactorName = request.params.name.toLowerCase();
   console.log(`Entered: ${reactorName}`);
 
   if (reactors.filter((elem) => elem.name.toLowerCase() === reactorName.toLowerCase())) {
-    response.json(reactors.filter((elem) => elem.name.toLowerCase() === reactorName.toLowerCase()));
+    response.json(
+      reactors.filter((elem) => elem.name.toLowerCase() === reactorName.toLowerCase())
+    );
   } else {
     response.status(404).end();
   }
 });
 
-// Listens to Server on PORT
+// Listens on Server using PORT variable
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
@@ -40,8 +59,7 @@ app.listen(PORT, () => {
 // *********** DATA SCRAPPER SCRIPT *********** //
 
 // Scrape source
-const url =
-  'https://en.wikipedia.org/wiki/List_of_small_modular_reactor_designs';
+const url = 'https://en.wikipedia.org/wiki/List_of_small_modular_reactor_designs';
 
 // Async function which scrapes the data
 async function scrapeData() {
@@ -74,12 +92,15 @@ async function scrapeData() {
       // Select the text content of a and span elements
       // Store the textcontent in the above object
       reactorDesign.name = $(el).children('td:nth-child(1)').text().trim();
-      reactorDesign.nameLink = $(el).children('td:nth-child(1)').find('a').attr('href');  
+      reactorDesign.nameLink = $(el).children('td:nth-child(1)').find('a').attr('href');
       reactorDesign.grossPower = $(el).children('td:nth-child(2)').text().trim();
       reactorDesign.type = $(el).children('td:nth-child(3)').text().trim();
-      reactorDesign.typeLink = $(el).children('td:nth-child(3)').find('a').attr('href'); 
+      reactorDesign.typeLink = $(el).children('td:nth-child(3)').find('a').attr('href');
       reactorDesign.producer = $(el).children('td:nth-child(4)').text().trim();
-      reactorDesign.producerLink = $(el).children('td:nth-child(4)').find('a').attr('href'); 
+      reactorDesign.producerLink = $(el)
+        .children('td:nth-child(4)')
+        .find('a')
+        .attr('href');
       reactorDesign.country = $(el).children('td:nth-child(5)').text().trim();
       reactorDesign.status = $(el).children('td:nth-child(6)').text().trim();
 
@@ -89,7 +110,6 @@ async function scrapeData() {
 
     // Logs reactorsList array to the console
     // console.dir(reactorsList);
-
 
     // Write reactorsList array in reactors-data.js file
     fs.writeFile(
