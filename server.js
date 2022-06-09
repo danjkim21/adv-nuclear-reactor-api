@@ -22,12 +22,12 @@ app.use(bodyParser.json());
 // *********** CRUD framework *********** //
 // path '/' servers up (GETS) the 'index.ejs' file and required data
 app.get('/', function (request, response) {
-  response.render('index', {foo: 'FOO'});    // fix data conventions foo: 'foo' - testing
+  response.render('index');   
 });
 
 // default path '/about' GETS the '/about.html' file and required data
 app.get('/about', function (request, response) {
-  response.render('about', {foo: 'FOO'});    // fix data conventions foo: 'foo' - testing
+  response.render('about', {reactorsArr: reactors});    // fix data conventions foo: 'foo' - testing
 });
 
 // path '/api/' GETS the adv. reactors API - Not filtered
@@ -74,7 +74,7 @@ async function scrapeData() {
     var reactorsList = [];
 
     // Use .each method to loop through the li we selected
-    listItems.each((idx, el) => {
+    listItems.each((index, el) => {
       // Object holding data for each reactorDesign
 
       const reactorDesign = {

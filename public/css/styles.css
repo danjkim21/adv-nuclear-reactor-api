@@ -34,6 +34,7 @@ a {
 body {
   height: 100%;
   margin: 0;
+  padding-bottom: 5vh; 
 }
 pre {
   overflow: scroll;
@@ -45,8 +46,10 @@ pre {
   border: 1px solid #a4a7aa;
   border-radius: 4px;
 }
-
-#mainSection, #contactInfoSection, #dataOverviewSection, #availableDataSection {
+#mainSection,
+#contactInfoSection,
+#dataOverviewSection,
+#availableDataSection {
   margin-left: 7.5vw;
   margin-right: 7.5vw;
 }
@@ -65,8 +68,13 @@ header {
   align-items: center;
   column-gap: 1.5rem;
 }
-.navElements > a{
+.navElements > a {
   color: whitesmoke;
+}
+
+/* Data columns */
+#dataColumnsTwo {
+  column-count: 2;
 }
 
 /******************************************
@@ -75,7 +83,10 @@ header {
 
 /* Media Queries for Device Width */
 @media screen and (max-width: 650px) {
-  #mainSection, #contactInfoSection, #dataOverviewSection, #availableDataSection {
+  #mainSection,
+  #contactInfoSection,
+  #dataOverviewSection,
+  #availableDataSection {
     margin-left: 2.5vw;
     margin-right: 2.5vw;
   }

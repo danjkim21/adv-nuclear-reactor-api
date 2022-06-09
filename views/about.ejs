@@ -78,8 +78,23 @@
     </section>
 
     <section id="availableDataSection">
-      <h2>Available Data</h2>
+      <h2>Available Reactor Data</h2>
+
+      <section id="dataColumnsTwo">
+        <ul class="reactorsArr">
+          <!-- Loop through quotes -->
+          <% reactorsArr.map((elem, ind) => {%>
+          <li class="reactor">
+            <!-- Output name from the iterated reactorsArr object -->
+            <span><%= elem.name %></span>
+            <span>  --  </span>
+            <span><%= elem.producer %></span>
+          </li>
+          <% }) %>
+        </ul>
+      </section>
     </section>
+
 
   </body>
 </html>
