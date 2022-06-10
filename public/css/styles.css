@@ -10,13 +10,21 @@
   display: flex;
 }
 
-/* Font Choices */
+/* Font Choices & sizing */
 * {
   font-family: 'Lato', sans-serif;
 }
 pre {
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.9rem;
+}
+#appName > h1 {
+  font-size: 4rem;
+  letter-spacing: -0.325rem;
+  margin: 0;
+}
+.fa-solid.fa-bolt {
+  font-size: 1.25rem;
 }
 
 /* Link styling */
@@ -32,19 +40,9 @@ a {
 /*******************************************/
 /* general layout styling */
 body {
-  height: 100%;
+  height: 100vh;
   margin: 0;
-  padding-bottom: 5vh; 
-}
-pre {
-  overflow: scroll;
-  white-space: pre-wrap;
-  word-break: break-all;
-  max-width: 750px;
-  padding: 1rem 1rem;
-  background-color: #f6f8fa;
-  border: 1px solid #a4a7aa;
-  border-radius: 4px;
+  padding-bottom: 5vh;
 }
 #mainSection,
 #contactInfoSection,
@@ -53,7 +51,6 @@ pre {
   margin-left: 7.5vw;
   margin-right: 7.5vw;
 }
-
 /* header styling */
 header {
   height: 8vh;
@@ -72,14 +69,73 @@ header {
   color: whitesmoke;
 }
 
+/* --------- About Page Layout Styling ---------- */
+pre {
+  overflow: scroll;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-width: 750px;
+  padding: 1rem 1rem;
+  background-color: #f6f8fa;
+  border: 1px solid #a4a7aa;
+  border-radius: 4px;
+}
 /* Data columns */
 #dataColumnsTwo {
   column-count: 2;
 }
 
+/* --------- Home Page Layout Styling ---------- */
+#mainSectionHome {
+  height: 100vh;
+  text-align: center;
+}
+#appName, #searchReactor, #description {
+  padding-left: 7.5vw;
+  padding-right: 7.5vw;
+}
+#appName {
+  padding-top: 22.5vh;
+  padding-bottom: 7.5vh;
+}
+#searchReactor {
+  padding-bottom: 7.5vh;
+}
+#description > p {
+  margin: 0;
+}
+/* header styling */
+#mainSectionHome > header {
+  /* height: 8vh;
+  padding-left: 7.5vw;
+  padding-right: 7.5vw;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #25292e; */
+}
+
+/* Action button styling and positioning */
+#actionButtonArea {
+  position: absolute;
+  bottom: 5vh;
+  left: 49vw;
+}
+#actionButton > #actionButtonIcon {
+  font-size: 2rem;
+}
+/* Reactor results display area styling */
+#reactorDisplay {
+  height: 100vh;
+  padding: 8vh 7.5vw 8vh 7.5vw;
+  border: 1px solid red;
+}
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+.hidden {
+  display: none;
+}
 
 /* Media Queries for Device Width */
 @media screen and (max-width: 650px) {
@@ -90,10 +146,14 @@ header {
     margin-left: 2.5vw;
     margin-right: 2.5vw;
   }
-  /* header styling */
+  /* Header Styling */
   header {
     height: 7.5vh;
     padding-left: 2.5vw;
     padding-right: 2.5vw;
+  }
+  /* Reactor Results Display Area Styling */
+  #reactorDisplay {
+    padding: 5vh 2.5vw 5vh 2.5vw;
   }
 }

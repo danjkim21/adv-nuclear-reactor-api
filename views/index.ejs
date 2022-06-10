@@ -10,34 +10,61 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/a2f02755e4.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="/css/styles.css" type="text/css" />
 
     <title>Adv. Reactor Database</title>
   </head>
 
   <body>
-    <!-- Header including Navbar -->
-    <header class="flexBox">
-      <nav >
-        <ul id="navList" class="flexBox">
-          <li class="navElements"><a href="/">Home</a></li>
-          <li class="navElements"><a href="/about">API</a></li>
-        </ul>
-      </nav>
-    </header>
-
     <!-- Main Section -->
-    <main id="mainSection">
-      <h1>Advanced Nuclear Reactor Database</h1>
+    <main id="mainSectionHome">
+      <!-- Header including Navbar -->
+      <header class="flexBox">
+        <nav>
+          <ul id="navList" class="flexBox">
+            <li class="navElements"><a href="/">Home</a></li>
+            <li class="navElements"><a href="/about">API</a></li>
+            <li class="navElements"><a href="#">Developers</a></li>
+          </ul>
+        </nav>
+      </header>
 
+      <section id="appName">
+        <h1>arDB</h1><span><i class="fa-solid fa-bolt"></i></span>
+      </section>
+
+
+      <section id="searchReactor">
+        <input
+          type="text"
+          placeholder="Enter reactor name"
+          name="name"
+          id="reactorNameInput"
+        />
+        <button type="submit" id="searchReactorBtn">Search Database</button>
+      </section>
+
+      <section id="description">
+        <p>An open source project dedicated to cataloging advanced nuclear reactor technologies.</p>
+      </section>
+
+      <section id="actionButtonArea" class="hidden">
+        <span id="actionButton"> <i id="actionButtonIcon" class="fa-solid fa-arrow-down"></i> </span>
+      </section>
     </main>
 
-    <section id="searchReactor">
-      <h2>Add quotes</h2>
-      <form action="/quotes" method="POST">
-        <input type="text" placeholder="reactor name" name="name" />
-        <button type="submit">Submit Form</button>
-      </form>
+    <section id="reactorDisplay" class="hidden">
+      <h2>Test Display Area</h2>
+      <p id="displayName"></p>
+      <p id="displayProducer"></p>
+      <p id="displayCountry"></p>
+      <p id="displayType"></p>
+      <p id="displayStatus"></p>
+      <p id="displayGrossPower"></p>
     </section>
 
     <script src="/js/main.js"></script>

@@ -22,12 +22,12 @@ app.use(bodyParser.json());
 // *********** CRUD framework *********** //
 // path '/' servers up (GETS) the 'index.ejs' file and required data
 app.get('/', function (request, response) {
-  response.render('index');   
+  response.render('index', {reactorsArr: reactors});   
 });
 
 // default path '/about' GETS the '/about.html' file and required data
 app.get('/about', function (request, response) {
-  response.render('about', {reactorsArr: reactors});    // fix data conventions foo: 'foo' - testing
+  response.render('about', {reactorsArr: reactors});  
 });
 
 // path '/api/' GETS the adv. reactors API - Not filtered
