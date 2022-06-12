@@ -34,9 +34,9 @@
       </header>
 
       <section id="appName">
-        <h1>arDB</h1><span><i class="fa-solid fa-bolt"></i></span>
+        <h1>arDB</h1>
+        <span><i class="fa-solid fa-bolt"></i></span>
       </section>
-
 
       <section id="searchReactor">
         <input
@@ -44,16 +44,24 @@
           placeholder="Enter reactor name"
           name="name"
           id="reactorNameInput"
-        />
-        <button type="submit" id="searchReactorBtn">Search Database</button>
+          autocomplete="off"
+        /><button type="submit" id="searchReactorBtn">Search Database</button>
+        <section id="suggestionsContainer" class="flexBox">
+          <ul id="suggestions" class="hidden"></ul>
+        </section>
       </section>
 
       <section id="description">
-        <p>An open source project dedicated to cataloging advanced nuclear reactor technologies.</p>
+        <p>
+          An open source project dedicated to cataloging advanced nuclear reactor
+          technologies.
+        </p>
       </section>
 
       <section id="actionButtonArea" class="hidden">
-        <span id="actionButton"> <i id="actionButtonIcon" class="fa-solid fa-arrow-down"></i> </span>
+        <span id="actionButton">
+          <i id="actionButtonIcon" class="fa-solid fa-arrow-down"></i>
+        </span>
       </section>
     </main>
 

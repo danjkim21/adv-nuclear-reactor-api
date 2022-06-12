@@ -19,12 +19,13 @@ pre {
   font-size: 0.9rem;
 }
 #appName > h1 {
-  font-size: 4rem;
+  font-size: 5rem;
   letter-spacing: -0.325rem;
   margin: 0;
 }
 .fa-solid.fa-bolt {
   font-size: 1.25rem;
+  color: #473eb3;
 }
 
 /* Link styling */
@@ -34,6 +35,28 @@ a {
 /* nav list elements */
 .navElements {
   display: inline-block;
+}
+/* Main-Input/Buttons Styling */
+#reactorNameInput {
+  height: 3rem;
+  width: 15rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+}
+#searchReactorBtn {
+  height: 3rem;
+  width: 10rem;
+  font-size: 1rem;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  border: none;
+  color: whitesmoke;
+  background-color: #473eb3;
+}
+#searchReactorBtn:hover {
+  cursor: pointer;
 }
 /******************************************
 /* LAYOUT
@@ -66,7 +89,12 @@ header {
   column-gap: 1.5rem;
 }
 .navElements > a {
+  padding: 0.5rem;
   color: whitesmoke;
+  transition: all ease-in-out 100ms;
+}
+.navElements > a:hover {
+  color: #5d51e4;
 }
 
 /* --------- About Page Layout Styling ---------- */
@@ -90,7 +118,9 @@ pre {
   height: 100vh;
   text-align: center;
 }
-#appName, #searchReactor, #description {
+#appName,
+#searchReactor,
+#description {
   padding-left: 7.5vw;
   padding-right: 7.5vw;
 }
@@ -112,6 +142,31 @@ pre {
   justify-content: flex-end;
   align-items: center;
   background-color: #25292e; */
+}
+/* Suggestions autocomplete box styling and positioning */
+#suggestionsContainer {
+  justify-content: center;
+  align-items: flex-start;
+}
+#suggestions {
+  height: 5rem;
+  width: 25rem;
+  text-align: left;
+  margin-top: 0;
+  padding: 0;
+  overflow-y: auto;
+  border: solid 2px black;
+  border-top: none;
+  border-radius: 4px 4px 4px 4px;
+}
+#suggestions li {
+  display: block;
+  line-height: 1.35;
+  font-size: 0.85rem;
+}
+#suggestions li:hover {
+  cursor: pointer;
+  background-color: #938fb9;
 }
 
 /* Action button styling and positioning */
@@ -151,6 +206,28 @@ pre {
     height: 7.5vh;
     padding-left: 2.5vw;
     padding-right: 2.5vw;
+  }
+  /* Input & Buttons */
+  #reactorNameInput {
+    height: 3rem;
+    width: 80vw;
+    border: 2px solid black;
+    border-radius: 4px;
+  }
+  #searchReactorBtn {
+    height: 3rem;
+    width: 80vw;
+    border-radius: 4px;
+    border: none;
+  }
+  /* Suggestions field */
+  #suggestions {
+    height: 5rem;
+    width: 80vw;
+  }
+  #suggestions li {
+    line-height: 1.65;
+    font-size: 1rem;
   }
   /* Reactor Results Display Area Styling */
   #reactorDisplay {

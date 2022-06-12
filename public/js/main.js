@@ -7,6 +7,8 @@ const reactorNameInput = document.querySelector('#reactorNameInput');
 const reactorDisplayArea = document.querySelector('#reactorDisplay');
 // Action Button section
 const actionButton = document.querySelector('#actionButtonArea');
+// Suggestions Field
+let ulField = document.querySelector('#suggestions');
 
 // ======== Event Listeners ========
 // searchReactorBtn -- 'On Click', run function searchReactor()
@@ -32,7 +34,6 @@ async function searchReactor() {
     document.querySelector('#displayCountry').innerText = data[0].country;
     document.querySelector('#displayType').innerText = data[0].type;
     document.querySelector('#displayStatus').innerText = data[0].status;
-    document.querySelector('#displayGrossPower').innerText = data[0].grossPower;
   } catch (error) {
     console.log(error);
   }
@@ -43,4 +44,50 @@ async function searchReactor() {
 function showReactorInfo() {
   reactorDisplayArea.classList.toggle('hidden');
   actionButton.classList.toggle('hidden');
+  ulField.classList.add('hidden');
 }
+
+// INPUT AUTOCOMPLETE ON PAGE LOAD - IIFE ----------------
+(function () {
+  'use strict';
+  reactorNameInput.addEventListener('input', changeAutoComplete);
+  reactorNameInput.addEventListener('focusin', removeHidden);
+  ulField.addEventListener('click', selectItem);
+
+  // Fetch Adv. Reactor DB data for autocomplete list
+  let reactorSearchList = [];
+  fetch(`https://adv-nuclear-api.herokuapp.com/api/`)
+    .then((response) => response.json())
+    .then((dataResults) => {
+      dataResults.forEach((elem) => reactorSearchList.push(elem.name));
+    });
+  // console.log(reactorSearchList)
+
+  function removeHidden() {
+    ulField.classList.remove('hidden');
+  }
+  function changeAutoComplete({ target }) {
+    let data = target.value;
+    ulField.innerHTML = ``;
+    if (data.length) {
+      let autoCompleteValues = autoComplete(data);
+      autoCompleteValues.forEach((elem) => {
+        addItem(elem);
+      });
+    }
+  }
+  function autoComplete(inputValue) {
+    return reactorSearchList.filter((elem) =>
+      elem.toLowerCase().includes(inputValue.toLowerCase())
+    );
+  }
+  function addItem(value) {
+    ulField.innerHTML = ulField.innerHTML + `<li>${value}</li>`;
+  }
+  function selectItem({ target }) {
+    if (target.tagName === 'LI') {
+      reactorNameInput.value = target.textContent;
+      ulField.innerHTML = ``;
+    }
+  }
+})();
