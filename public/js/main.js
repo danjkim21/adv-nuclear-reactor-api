@@ -30,10 +30,11 @@ async function searchReactor() {
 
     // Displays selected reactor information in the reactorDisplayArea section
     document.querySelector('#displayName').innerText = data[0].name;
-    document.querySelector('#displayProducer').innerText = data[0].producer;
-    document.querySelector('#displayCountry').innerText = data[0].country;
-    document.querySelector('#displayType').innerText = data[0].type;
-    document.querySelector('#displayStatus').innerText = data[0].status;
+    document.querySelector('#displayProducer').innerHTML = '<b>Vendor: </b>' + data[0].producer;
+    document.querySelector('#displayCountry').innerHTML = '<b>Country of Origin: </b>' + data[0].country;
+    document.querySelector('#displayType').innerHTML = '<b>Reactor Type: </b>' + data[0].type;
+    document.querySelector('#displayStatus').innerHTML = '<b>Summary Status: </b>' + data[0].status;
+    document.querySelector('#displayGrossPower').innerHTML = '<b>Gross Power: </b>' + data[0].grossPower + ' MWe';
   } catch (error) {
     console.log(error);
   }

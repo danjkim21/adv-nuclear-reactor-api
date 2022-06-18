@@ -39,10 +39,10 @@ a {
 /* Main-Input/Buttons Styling */
 #reactorNameInput {
   height: 3rem;
-  width: 15rem;
+  width: 18.5rem;
   font-size: 1rem;
   padding-left: 1rem;
-  border: 1px solid grey;
+  border: none;
   border-right: none;
   border-radius: 4px 0 0 4px;
 }
@@ -147,9 +147,14 @@ pre {
 }
 #mainSectionHome .navElements > a {
   color: black;
+  border: 1px solid #5d51e400;
   transition: all ease-in-out 100ms;
 }
 #mainSectionHome .navElements > a:hover {
+  border: 1px solid #5d51e4;
+  border-radius: 4px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1); 
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
   color: #5d51e4;
 }
 
@@ -160,14 +165,14 @@ pre {
 }
 #suggestions {
   height: 5rem;
-  width: 25rem;
+  width: 28.5rem;
   text-align: left;
   margin-top: 0;
   padding: 0;
   overflow-y: auto;
   background-color: white;
   border: solid 1px grey;
-  border-top: none;
+  /* border-top: none; */
   border-radius: 4px 4px 4px 4px;
 }
 #suggestions li {
@@ -211,7 +216,7 @@ pre {
 
 /* Reactor results display area styling */
 #reactorDisplay {
-  height: 100vh;
+  height: 80vh;
   padding: 8vh 7.5vw 8vh 7.5vw;
 }
 
