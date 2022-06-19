@@ -1,4 +1,4 @@
-// ======== Query Selectors ========
+// ======== Main Query Selectors ========
 // Reactor search button
 const searchReactorBtn = document.querySelector('#searchReactorBtn');
 // Reactor Name input element
@@ -28,13 +28,29 @@ async function searchReactor() {
     const data = await response.json();
     console.log(data[0]);
 
+    // Display information query selectors
+    const displayName = document.querySelector('#displayName');
+    const displayFullName = document.querySelector('#displayFullName');
+    const displayProducer = document.querySelector('#displayProducer');
+    const displayProducerWebsite = document.querySelector('#displayProducerWebsite');
+    const displayCountry = document.querySelector('#displayCountry');
+    const displayType = document.querySelector('#displayType');
+    const displayPurpose = document.querySelector('#displayPurpose');
+    const displayStatus = document.querySelector('#displayStatus');
+    const displayCoolant = document.querySelector('#displayCoolant');
+    const displayModerator = document.querySelector('#displayModerator');
+
     // Displays selected reactor information in the reactorDisplayArea section
-    document.querySelector('#displayName').innerText = data[0].name;
-    document.querySelector('#displayProducer').innerHTML = '<b>Vendor: </b>' + data[0].producer;
-    document.querySelector('#displayCountry').innerHTML = '<b>Country of Origin: </b>' + data[0].country;
-    document.querySelector('#displayType').innerHTML = '<b>Reactor Type: </b>' + data[0].type;
-    document.querySelector('#displayStatus').innerHTML = '<b>Summary Status: </b>' + data[0].status;
-    document.querySelector('#displayGrossPower').innerHTML = '<b>Gross Power: </b>' + data[0].grossPower + ' MWe';
+    displayName.innerText = data[0].name;
+    displayFullName.innerText = '(' + data[0].fullName + ')';
+    displayProducerWebsite.href = data[0].designOrgWebsite;
+    displayProducer.innerHTML = data[0].designOrg;
+    displayCountry.innerHTML = data[0].country;
+    displayType.innerHTML = data[0].type;
+    displayPurpose.innerHTML = data[0].purpose;
+    displayStatus.innerHTML = data[0].designStatus;
+    displayCoolant.innerHTML = data[0].coolant;
+    displayModerator.innerHTML = data[0].moderator;
   } catch (error) {
     console.log(error);
   }
