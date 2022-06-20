@@ -39,9 +39,10 @@ It is a work in progress and the data is constantly evolving as I enhance my web
 **Tech used:** 
 * [Node.js](https://nodejs.org/en/)
 * [Express](https://expressjs.com/)
+* [Puppeteer](https://github.com/puppeteer/puppeteer)
 * [Cheerio](https://cheerio.js.org/)
 
-The data for this API project was obtained by creating a custom web scraper script using Cheerio. At the moment, the scraper pulls data from [Wikipedia](https://en.wikipedia.org/wiki/List_of_small_modular_reactor_designs) but the scraper will be enhanced to recieve multiple url inputs (if you have any quality sources, please let me know!).
+The data for this API project was obtained by creating a custom web scraper script using Cheerio. At the moment, the scraper pulls data from the [International Atomic Energy Agency](https://aris.iaea.org/sites/overview.html) but the scraper will be enhanced to recieve multiple url inputs (if you have any quality sources, please let me know!).
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -77,8 +78,8 @@ This API can be accessed via [https://adv-nuclear-api.herokuapp.com/](https://ad
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Client Side API interaction
-- [ ] Web scraper enhancements (new sources)
+- [x] Client Side API interaction
+- [ ] Web scraper enhancements (new & multiple sources scraping)
 - [ ] Feature to allow reactor developers to add reactor data
 
 See the [open issues](https://github.com/danjkim21/adv-nuclear-reactor-api/issues) for a full list of proposed features (and known issues).
