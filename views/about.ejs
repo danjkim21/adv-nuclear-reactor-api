@@ -18,7 +18,7 @@
   <body>
     <!-- Header including Navbar -->
     <header class="flexBox">
-      <nav >
+      <nav>
         <ul id="navList" class="flexBox">
           <li class="navElements"><a href="/">Home</a></li>
           <li class="navElements"><a href="/about">API</a></li>
@@ -31,7 +31,6 @@
     <main id="mainSection">
       <h1>Advanced Reactor Database</h1>
       <p>An API containing web scraped data of advanced nuclear reactor designs.</p>
-
     </main>
 
     <!-- Contact Information Section -->
@@ -54,24 +53,36 @@
     <section id="dataOverviewSection">
       <h2>Endpoints</h2>
       <section>
+        <h3>Return Full Resources Object:</h3>
+        <code class="endPoint">https://adv-nuclear-api.herokuapp.com/api</code>
+
         <h3>Search API by Reactor Name:</h3>
-        <p>https://adv-nuclear-api.herokuapp.com/api/<strong>reactor name</strong></p>
+        <code class="endPoint"
+          >https://adv-nuclear-api.herokuapp.com/api/<span
+            >&lt;reactor name&gt;</span
+          ></code
+        >
       </section>
 
       <section>
         <h3>Sample JSON Response:</h3>
+
         <code>
           <pre>
+            https://adv-nuclear-api.herokuapp.com/api/4S
+
             {
-                "name": "Xe-100",
-                "nameLink": "/w/index.php?title=Xe-100&action=edit&redlink=1",
-                "grossPower": "80",
-                "type": "HTGR",
-                "typeLink": "/wiki/High_temperature_gas_cooled_reactor",
-                "producer": "X-energy[31]",
-                "producerLink": "/wiki/X-energy",
-               "country": "United States",
-               "status": "Conceptual design development"
+              "name": "4S",
+              "nameWebsite": "..\\PDF\\Toshiba-4S_2020.pdf",
+              "fullName": "super-safe, small and simple",
+              "designOrg": "Toshiba Energy Systems & Solutions Corp.",
+              "designOrgWebsite": "https://www.toshiba-energy.com/en/nuclearenergy/rd/safety-reactor.htm",
+              "coolant": "Sodium",
+              "moderator": "No Moderator",
+              "designStatus": "Detailed Design",
+              "country": "Japan",
+              "type": "SFR",
+              "purpose": "Commercial"
             }
           </pre>
         </code>
@@ -88,14 +99,12 @@
           <li class="reactor">
             <!-- Output name from the iterated reactorsArr object -->
             <span><%= elem.name %></span>
-            <span>  --  </span>
-            <span><%= elem.producer %></span>
+            <span> -- </span>
+            <span><%= elem.designOrg %></span>
           </li>
           <% }) %>
         </ul>
       </section>
     </section>
-
-
   </body>
 </html>

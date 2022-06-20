@@ -14,10 +14,11 @@
 * {
   font-family: 'Lato', sans-serif;
 }
-pre {
+pre, .endPoint, .endPoint span  {
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.9rem;
 }
+
 #appName > h1 {
   font-size: 5rem;
   letter-spacing: -0.325rem;
@@ -101,14 +102,27 @@ header {
 /* --------- About Page Layout Styling ---------- */
 pre {
   overflow: scroll;
-  white-space: pre-wrap;
+  white-space: pre;
   word-break: break-all;
   max-width: 750px;
   padding: 1rem 1rem;
   background-color: #f6f8fa;
   border: 1px solid #a4a7aa;
   border-radius: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+.endPoint {
+  padding: 0.5rem 1rem;
+  background-color: #f6f8fa;
+  border: 1px solid #a4a7aa;
+  border-radius: 4px;
+}
+.endPoint span {
+  color:#473eb3;
+  font-weight: 700;
+}
+
 /* Data columns */
 #dataColumnsTwo {
   column-count: 2;
@@ -153,8 +167,8 @@ pre {
 #mainSectionHome .navElements > a:hover {
   border: 1px solid #5d51e4;
   border-radius: 4px;
-  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1); 
-  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
   color: #5d51e4;
 }
 
