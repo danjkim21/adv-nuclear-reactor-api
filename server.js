@@ -132,10 +132,7 @@ async function scrapeData() {
 
   // Logs reactorsList array to the console
   console.dir(reactorsList[2]);
-
-  // *** TODO *** fix nameWebsite pdf to url link 
-  // (eg. '..\PDF\...' to 'https://aris.iaea.org/PDF/...')
-
+  
   // Write reactorsList array in reactors-data.js file
   await fs.writeFile(
     'reactors-data-1.js',

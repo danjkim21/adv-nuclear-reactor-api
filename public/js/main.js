@@ -28,9 +28,16 @@ async function searchReactor() {
     const data = await response.json();
     console.log(data[0]);
 
+    // Fix nameWebsite pdf to url link
+    // ('..\PDF\...' to 'https://aris.iaea.org/PDF/...')
+    let nameWebsiteConv = `https://aris.iaea.org/PDF/${
+      data[0].nameWebsite.split('\\')[2]
+    }`;
+
     // Display information query selectors
     const displayName = document.querySelector('#displayName');
     const displayFullName = document.querySelector('#displayFullName');
+    const displayReactorWebsite = document.querySelector('#displayReactorWebsite');
     const displayProducer = document.querySelector('#displayProducer');
     const displayProducerWebsite = document.querySelector('#displayProducerWebsite');
     const displayCountry = document.querySelector('#displayCountry');
@@ -42,7 +49,8 @@ async function searchReactor() {
 
     // Displays selected reactor information in the reactorDisplayArea section
     displayName.innerText = data[0].name;
-    displayFullName.innerText = '(' + data[0].fullName + ')';
+    displayFullName.innerText = data[0].fullName;
+    displayReactorWebsite.href = nameWebsiteConv;
     displayProducerWebsite.href = data[0].designOrgWebsite;
     displayProducer.innerHTML = data[0].designOrg;
     displayCountry.innerHTML = data[0].country;
@@ -59,8 +67,8 @@ async function searchReactor() {
 // ======== Accessory Functions ========
 // showReactorInfo() -- Unhides reactorDisplayArea and the Action Button
 function showReactorInfo() {
-  reactorDisplayArea.classList.toggle('hidden');
-  actionButton.classList.toggle('hidden');
+  reactorDisplayArea.classList.remove('hidden');
+  actionButton.classList.remove('hidden');
   ulField.classList.add('hidden');
 }
 
