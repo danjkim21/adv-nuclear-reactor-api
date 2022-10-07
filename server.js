@@ -10,9 +10,10 @@ const cors = require('cors');
 
 // ************* Variables ************* //
 const PORT = process.env.PORT || 8000;
-const { reactors } = require('./public/js/reactors-data-1');
 const scrape = require('./public/js/scrape');
-const handleData = require('./public/js/dataMerge')
+const handleData = require('./public/js/dataMerge');
+const { reactors } = require('./public/js/reactors-data-1');
+const { reactorDataMerged } = require('./public/assets/data-merged');
 
 // ************* Middleware ************ //
 app.use(cors());
@@ -57,14 +58,25 @@ app.listen(PORT, () => {
 });
 
 // ******* Web Scraper 1.0 (Cheerio + Puppeteer) ******* //
-// scrape.scrapeOverview();
-// scrape.scrapeGeneral();
-// scrape.scrapeNsss();
-// scrape.scrapeRcs();
-// scrape.scrapeCore();
-// scrape.scrapeMaterial();
-// scrape.scrapeRpv();
 
+async function runScraper() {
+  // Scrape all sites
+  let overview = await scrape.scrapeOverview();
+  let general = await scrape.scrapeGeneral();
+  let nsss = await scrape.scrapeNsss();
+  let rcs = await scrape.scrapeRcs();
+  let core = await scrape.scrapeCore();
+  let material = await scrape.scrapeMaterial();
+  let rpv = await scrape.scrapeRpv();
 
-// Merge Data into one json file
-handleData.mergeData();
+  // Once all sites scraping are complete > merge the data into data-merged.js
+  Promise.all([overview, general, nsss, rcs, core, material, rpv])
+    .then(() => {
+      handleData.mergeData();
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
+}
+
+runScraper();

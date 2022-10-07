@@ -23,7 +23,7 @@ async function mergeData() {
     .map(_.spread(_.merge))
     .value();
 
-  console.log(reactorsList);
+  // console.log(reactorsList);
 
   await fs.writeFile(
     './public/assets/data-merged.js',
