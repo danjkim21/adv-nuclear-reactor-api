@@ -12,6 +12,7 @@ const cors = require('cors');
 const PORT = process.env.PORT || 8000;
 const { reactors } = require('./public/js/reactors-data-1');
 const scrape = require('./public/js/scrape');
+const handleData = require('./public/js/dataMerge')
 
 // ************* Middleware ************ //
 app.use(cors());
@@ -56,10 +57,14 @@ app.listen(PORT, () => {
 });
 
 // ******* Web Scraper 1.0 (Cheerio + Puppeteer) ******* //
-scrape.scrapeOverview();
-scrape.scrapeGeneral();
-scrape.scrapeNsss();
-scrape.scrapeRcs();
-scrape.scrapeCore();
-scrape.scrapeMaterial();
-scrape.scrapeRpv();
+// scrape.scrapeOverview();
+// scrape.scrapeGeneral();
+// scrape.scrapeNsss();
+// scrape.scrapeRcs();
+// scrape.scrapeCore();
+// scrape.scrapeMaterial();
+// scrape.scrapeRpv();
+
+
+// Merge Data into one json file
+handleData.mergeData();
