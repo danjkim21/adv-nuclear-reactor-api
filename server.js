@@ -23,12 +23,12 @@ app.set('view engine', 'ejs');
 // *********** CRUD framework *********** //
 // Default path '/' -- servers up (GETS) the 'index.ejs' file and required data
 app.get('/', function (request, response) {
-  response.render('index', { reactorsArr: reactors });
+  response.render('index', { reactorsArr: reactorDataMerged });
 });
 
 // path '/about' -- GETS the '/about.html' file and required data
 app.get('/about', function (request, response) {
-  response.render('about', { reactorsArr: reactors });
+  response.render('about', { reactorsArr: reactorDataMerged });
 });
 
 // path '/api/' -- GETS the adv. reactors API - Not filtered
@@ -43,9 +43,9 @@ app.get('/api/:name', (request, response) => {
   const reactorName = request.params.name.toLowerCase();
   console.log(`Entered: ${reactorName}`);
 
-  if (reactors.filter((elem) => elem.name.toLowerCase() === reactorName.toLowerCase())) {
+  if (reactorDataMerged.filter((elem) => elem.name.toLowerCase() === reactorName.toLowerCase())) {
     response.json(
-      reactors.filter((elem) => elem.name.toLowerCase() === reactorName.toLowerCase())
+      reactorDataMerged.filter((elem) => elem.name.toLowerCase() === reactorName.toLowerCase())
     );
   } else {
     response.status(404).end();
@@ -79,4 +79,4 @@ async function runScraper() {
     });
 }
 
-runScraper();
+// runScraper();
